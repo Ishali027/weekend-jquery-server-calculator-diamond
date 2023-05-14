@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>serverSide Calculator</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="vendors/jquery.js"></script>
+    <script src="scripts/client.js"></script>
+
+</head>
+<body>
+    <h1>Server Side Calculator</h1>
+    <form id="input-form">
+        <input type="number" id="integer-one" placeholder="first-number-here">
+
+        <button class="operator-btn" data-value="+" >+</button>
+        <button class="operator-btn" data-value="-">-</button>
+        <button class="operator-btn" data-value="*">*</button>
+        <button class="operator-btn" data-value="/">/</button>
+
+
+        <input type="number" id="integer-two" placeholder="second-number-here">
+
+        <button id="submit-btn" type="submit">=</button>
+        <!-- <button id="clear-btn">C</button> -->
+    </form>
+
+    <div id="solution">
+    </div>  
+
+    <div>
+        <ul id="calculation-history">  </ul>
+    </div>
+    
+</body>
+</html>
