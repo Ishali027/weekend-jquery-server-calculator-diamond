@@ -10,7 +10,7 @@ function onReady(){
     console.log("jquery is loaded");
     $('#input-form').on('submit', postCalculations);// for the equal button
     $('.operator-btn').on('click', postOperators)/// for the operators
-    $('#c')
+    $('#clear-btn').on('click',clearTextBox)
     getCalcs();
     // renderToDom(response);
 
@@ -18,6 +18,9 @@ function onReady(){
 }
 let operator; // defined global variable to be used in postCalculation function
 
+function clearTextBox(){
+    $('.text-box').val('');
+}
 
 
 
