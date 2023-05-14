@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 $(document).ready(onReady);
 
 
@@ -8,7 +10,9 @@ function onReady(){
     console.log("jquery is loaded");
     $('#input-form').on('submit', postCalculations);// for the equal button
     $('.operator-btn').on('click', postOperators)/// for the operators
+    $('#c')
     getCalcs();
+    // renderToDom(response);
 
 
 }
@@ -41,7 +45,13 @@ function postCalculations(event){
             inputTwo: inputTwo,
             operator
     }
-    })
+    }).then(function(response){
+        console.log('success');
+        getCalcs()
+        
+    }).catch(function(error){
+        alert('error!', error);
+    }) 
 }
 
 function getCalcs(){
@@ -50,6 +60,19 @@ function getCalcs(){
         method: 'GET',
         url: '/inputs'
     }).then(function(response){
+        console.log('Success', response);
+        renderToDom(response);
         console.log('my get is working', response);
     })
+}
+
+
+function renderToDom(equations){
+   $('#calculation-history').empty();
+   $('#answer').empty();
+   //for loop to loop through my mathHistory array
+   for( equation of equations){
+    $('#answer').text(`${equation.total}`)
+    $('#calculation-history').append(`<li>${equation.inputOne} ${equation.operator} ${equation.inputTwo} = ${equation.total}</li>`)
+   }
 }
